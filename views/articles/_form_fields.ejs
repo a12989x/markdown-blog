@@ -1,0 +1,21 @@
+<label for="title">Title</label>
+<input
+    value="<%= article.title %>"
+    required
+    type="text"
+    name="title"
+    id="title"
+/>
+
+<label for="description">Description</label>
+<textarea class="description" name="description" id="description">
+<%= article.description %></textarea
+>
+
+<label for="markdown">Markdown</label>
+<textarea class="markdown" required name="markdown" id="markdown">
+<%= article.markdown %></textarea
+>
+
+<a class="cancel" href="/">Cancel</a>
+<button class="save" type="submit">Save</button>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha512-xA6Hp6oezhjd6LiLZynuukm80f8BoZ3OpcEYaqKoCV3HKQDrYjDE1Gu8ocxgxoXmwmSzM4iqPvCsOkQNiu41GA==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="css/main.css" type="text/css" />
+        <title>Home</title>
+    </head>
+    <body>
+        <h1 class="title">Blog Articles</h1>
+        <a class="new-article" href="/articles/new">New Article <i class="fas fa-plus"></i></a>
+
+        <% articles.forEach(article => { %>
+        <section class="blog">
+            <h4 class="blog__title"><%= article.title %></h4>
+            <p class="blog__created-at"><%= article.createdAt.toLocaleDateString() %></p>
+            <p class="blog__description"><%= article.description %></p>
+            <a class="blog__read-more" href="articles/<%= article.slug %>">Read More</a>
+            <a class="blog__edit" href="articles/edit/<%= article.id %>"><i class="fas fa-edit"></i></a>
+            <form
+                class="blog__form"
+                action="/articles/<%= article.id %>?_method=DELETE"
+                method="POST"
+            >
+                <button class="blog__delete" type="submit"><i class="fas fa-trash"></i></button>
+            </form}>
+        </section>
+        <% }) %>
+    </body>
+</html>
